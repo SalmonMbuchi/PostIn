@@ -1,6 +1,6 @@
 # PostIt
 
-![PostIt logo](/POSTIT.png)
+![PostIt logo](/assets/POSTIT.png)
 
 PostIt is a web application designed for conception, deliberation and implementation of ideas. PostIt is designed for creative thinkers, writers and experts to expose their ideas to the world. A platform where readers and writers collaborate on important ideas leading to discovery and growth.
 
@@ -21,13 +21,13 @@ For the front-end, I used HTML and CSS for the earlier parts of the project, how
 
 Here we have a diagram that shows the tech stack that make up PostIt:
 
-![Tech stack](/PostIt_tech_stack.png)
+![Tech stack](./assets/PostIt_tech_stack.png)
 
 ## User Experience
 
 Below is a simple flow for the user experience on PostIt:
 
-![User experience](/PostIt%20user%20xp.png)
+![User experience](/assets/PostIt%20user%20xp.png)
 
 ## Getting Started
 
