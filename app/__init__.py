@@ -1,7 +1,7 @@
 from flask import Flask, request
 from config import Config
 from flask_bootstrap import Bootstrap
-from flask_babel import Babel
+from flask_babel import Babel, lazy_gettext as _l
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_moment import Moment
@@ -23,6 +23,8 @@ db = SQLAlchemy(app)
 login = LoginManager(app)
 # tells flask which page handles logins to enforce logging
 login.login_view = 'login'
+# override the default message when the user is redirected to the login page
+login.login_message = _l('Please log in to access this page.')
 
 # migration engine instance
 migrate = Migrate(app, db)

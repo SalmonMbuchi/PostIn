@@ -1,4 +1,6 @@
-2022-12-14 22:21:12,560 ERROR: Exception on / [GET] [in /home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py:1741]
+2022-12-14 22:52:18,060 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:44]
+2022-12-14 22:58:34,022 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:44]
+2022-12-14 22:58:42,176 ERROR: Exception on /user/sue [GET] [in /home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
@@ -10,26 +12,28 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/home/salmon/git/PostIn/app/routes.py", line 33, in index
-    return render_template('index.html', title='Home', form=form, posts=posts)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 146, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
+  File "/home/salmon/git/PostIn/app/routes.py", line 91, in user
+    return render_template('user.html', user=user, posts=posts, form=form)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/salmon/git/PostIn/app/templates/index.html", line 10, in template
-    {{% for error in form.post.errors %}}
-jinja2.exceptions.TemplateSyntaxError: unexpected '%'
-2022-12-14 22:21:15,227 ERROR: Exception on /index [GET] [in /home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py:1741]
+  File "/home/salmon/git/PostIn/app/templates/user.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/home/salmon/git/PostIn/app/templates/base.html", line 35, in top-level template code
+    {% block content %} {% endblock %}
+  File "/home/salmon/git/PostIn/app/templates/user.html", line 38, in block 'content'
+    {% include '_avatar.html' %}
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 62, in get_source
+    return self._get_source_fast(environment, template)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: _avatar.html
+2022-12-14 23:01:07,097 ERROR: Exception on /user/sue [GET] [in /home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
@@ -41,27 +45,28 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/home/salmon/git/PostIn/app/routes.py", line 33, in index
-    return render_template('index.html', title='Home', form=form, posts=posts)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 146, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
+  File "/home/salmon/git/PostIn/app/routes.py", line 91, in user
+    return render_template('user.html', user=user, posts=posts, form=form)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/salmon/git/PostIn/app/templates/index.html", line 10, in template
-    {{% for error in form.post.errors %}}
-jinja2.exceptions.TemplateSyntaxError: unexpected '%'
-2022-12-14 22:22:27,112 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:44]
-2022-12-14 22:22:28,777 ERROR: Exception on / [GET] [in /home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py:1741]
+  File "/home/salmon/git/PostIn/app/templates/user.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/home/salmon/git/PostIn/app/templates/base.html", line 35, in top-level template code
+    {% block content %} {% endblock %}
+  File "/home/salmon/git/PostIn/app/templates/user.html", line 38, in block 'content'
+    {% include '_post.html' %}
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 62, in get_source
+    return self._get_source_fast(environment, template)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: _avatar.html
+2022-12-14 23:01:10,739 ERROR: Exception on /user/sue [GET] [in /home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
@@ -73,54 +78,31 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/home/salmon/git/PostIn/app/routes.py", line 33, in index
-    return render_template('index.html', title='Home', form=form, posts=posts)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 146, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
+  File "/home/salmon/git/PostIn/app/routes.py", line 91, in user
+    return render_template('user.html', user=user, posts=posts, form=form)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
   File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/salmon/git/PostIn/app/templates/index.html", line 12, in template
-    {{% endfor %}}
-jinja2.exceptions.TemplateSyntaxError: unexpected '%'
-2022-12-14 22:22:30,662 ERROR: Exception on /index [GET] [in /home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py:1741]
-Traceback (most recent call last):
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/home/salmon/git/PostIn/app/routes.py", line 33, in index
-    return render_template('index.html', title='Home', form=form, posts=posts)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 146, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
-  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/salmon/git/PostIn/app/templates/index.html", line 12, in template
-    {{% endfor %}}
-jinja2.exceptions.TemplateSyntaxError: unexpected '%'
-2022-12-14 22:51:13,377 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:44]
+  File "/home/salmon/git/PostIn/app/templates/user.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/home/salmon/git/PostIn/app/templates/base.html", line 35, in top-level template code
+    {% block content %} {% endblock %}
+  File "/home/salmon/git/PostIn/app/templates/user.html", line 38, in block 'content'
+    {% include '_post.html' %}
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 62, in get_source
+    return self._get_source_fast(environment, template)
+  File "/home/salmon/git/PostIn/env/lib/python3.10/site-packages/flask/templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: _avatar.html
+2022-12-14 23:01:21,831 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:44]
+2022-12-14 23:01:37,148 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:44]
+2022-12-16 14:22:05,915 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:44]
+2022-12-16 23:04:56,727 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:47]
+2022-12-16 23:07:14,584 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:47]
+2022-12-16 23:08:59,411 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:47]
+2022-12-19 15:56:53,211 INFO: PostIt startup [in /home/salmon/git/PostIn/app/__init__.py:47]
