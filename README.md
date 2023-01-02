@@ -35,6 +35,10 @@ Below is a simple flow for the user experience on PostIt:
 2. Activate the virtual environment by running `source [full path]/PostIt/env/bin/activate`
 3. Run `flask run`. Once this is done you are ready to run **PostIt**. Navigation to your web browser and enter `localhost:5000`. Enjoy PostIt!
 
+## Dependencies
+
+The dependencies necessary for running PostIt are listed [here](requirements.txt)
+
 ## Author
 
 **Salmon:** [Github](https://github.com/SalmonMbuchi) / [LinkedIn](https://www.linkedin.com/in/salmon-mbuchi/)
