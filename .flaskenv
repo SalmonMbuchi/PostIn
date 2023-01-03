@@ -1,1 +1,1 @@
-FLASK_APP=postin.py
+FLASK_APP=postit.py

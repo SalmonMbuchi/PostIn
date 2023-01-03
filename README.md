@@ -11,7 +11,7 @@ PostIt is a web application designed for conception, deliberation and implementa
 
 ### Backend
 
-PostIt's backend is written primarily in Python. Python was used because as the backend language because it has a wide variety of web application frameworks such as Flask. Flask was used as the web framework to build a RESTful API because it is light, flexible and was covered in previous projects so this was a chance to show what I learnt. 
+PostIt's backend is written primarily in Python. Python was used because as the backend language because it has a wide variety of web application frameworks such as Flask. Flask was used as the web framework to build a RESTful API because it is light, flexible and was covered in previous projects so this was a chance to show what I learnt.
 
 For the database I used a MySQL server because the relational database is most suited for structured data in this application. This was also another opportunity to implement knowledge gained from previous tasks.
 
@@ -42,4 +42,3 @@ The dependencies necessary for running PostIt are listed [here](requirements.txt
 ## Author
 
 **Salmon:** [Github](https://github.com/SalmonMbuchi) / [LinkedIn](https://www.linkedin.com/in/salmon-mbuchi/)
-
