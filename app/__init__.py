@@ -1,3 +1,4 @@
+from app import models
 from flask import Flask, request, current_app
 from config import Config
 from flask_bootstrap import Bootstrap
@@ -17,7 +18,7 @@ db = SQLAlchemy()
 # when navigating different pages and even after closing the browser window
 login = LoginManager()
 # tells flask which page handles logins to enforce logging
-login.login_view = 'login'
+login.login_view = 'auth.login'
 # override the default message when the user is redirected to the login page
 login.login_message = _l('Please log in to access this page.')
 
@@ -56,7 +57,7 @@ def create_app(config_class=Config):
 
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
-    
+
     if not app.debug and not app.testing:
         # create a logs directory if it doesn't exist
         if not os.path.exists('logs'):
@@ -85,5 +86,3 @@ def get_locale():
 
 
 # avoid circular imports
-from app import models
-
