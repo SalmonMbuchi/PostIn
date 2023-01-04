@@ -1,4 +1,3 @@
-from app import models
 from flask import Flask, request, current_app
 from config import Config
 from flask_bootstrap import Bootstrap
@@ -86,3 +85,5 @@ def get_locale():
 
 
 # avoid circular imports
+from app import models
+
